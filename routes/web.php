@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+
+// Driver
+Route::match(['get', 'post'], '/add/driver', 'TaxiDriverController@add')->name('addDrivers');
+Route::get('/driver', 'TaxiDriverController@index');
+
+// Car
+Route::match(['get', 'post'], '/add/car', 'CarController@add')->name('addCars');
+Route::get('/car', 'CarController@index');
